@@ -25,8 +25,8 @@ const server = http.createServer((req, res) => {
   const url = req.url;
 
   // serve index
-  if (url === '/' || url === '/index.html') {
-    return sendFile(res, path.join(PUBLIC, 'index.html'), 'text/html');
+  if (url === '/' || url === '/visitor.html') {
+    return sendFile(res, path.join(PUBLIC, 'visitor.html'), 'text/html');
   }
 
   // serve static files (css, js)
@@ -63,3 +63,4 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
 });
+
