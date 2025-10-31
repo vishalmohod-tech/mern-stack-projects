@@ -5,8 +5,10 @@ const path = require("path");
 const PORT = process.env.PORT || 10000;
 
 const server = http.createServer((req, res) => {
-  if (req.url === "/" || req.url === "/index.html") {
-    fs.readFile(path.join(__dirname, "index.html"), (err, data) => {
+    let filePath = "";
+  let contentType = "text/html";
+  if (req.url === "/" || req.url === "/visitor.html") {
+    fs.readFile(path.join(__dirname, "visitor.html"), (err, data) => {
       if (err) {
         res.writeHead(500, { "Content-Type": "text/plain" });
         res.end("Internal Server Error");
@@ -15,13 +17,13 @@ const server = http.createServer((req, res) => {
         res.end(data);
       }
     });
-  } else if (req.url === "/style.css") {
-    fs.readFile(path.join(__dirname, "style.css"), (err, data) => {
+  } else if (req.url === "/visitor.css") {
+    fs.readFile(path.join(__dirname, "visitor.css"), (err, data) => {
       res.writeHead(200, { "Content-Type": "text/css" });
       res.end(data);
     });
-  } else if (req.url === "/script.js") {
-    fs.readFile(path.join(__dirname, "script.js"), (err, data) => {
+  } else if (req.url === "/visitor.js") {
+    fs.readFile(path.join(__dirname, "visitor.js"), (err, data) => {
       res.writeHead(200, { "Content-Type": "text/javascript" });
       res.end(data);
     });
@@ -34,3 +36,4 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
