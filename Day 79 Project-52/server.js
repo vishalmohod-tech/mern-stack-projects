@@ -5,35 +5,35 @@ const path = require("path");
 const PORT = process.env.PORT || 10000;
 
 const server = http.createServer((req, res) => {
-    let filePath = "";
+      let filePath = "";
   let contentType = "text/html";
+
   if (req.url === "/" || req.url === "/visitor.html") {
-    fs.readFile(path.join(__dirname, "visitor.html"), (err, data) => {
-      if (err) {
-        res.writeHead(500, { "Content-Type": "text/plain" });
-        res.end("Internal Server Error");
+    filePath = path.join(__dirname, "visitor.html");
+      } else if (req.url === "/visitor.css") {
+        filePath = path.join(__dirname, "visitor.css");
+    contentType = "text/css";
+      } else if (req.url === "/visitor.js") {
+    filePath = path.join(__dirname, "visitor.js");
+    contentType = "text/javascript";
       } else {
-        res.writeHead(200, { "Content-Type": "text/html" });
-        res.end(data);
-      }
-    });
-  } else if (req.url === "/visitor.css") {
-    fs.readFile(path.join(__dirname, "visitor.css"), (err, data) => {
-      res.writeHead(200, { "Content-Type": "text/css" });
-      res.end(data);
-    });
-  } else if (req.url === "/visitor.js") {
-    fs.readFile(path.join(__dirname, "visitor.js"), (err, data) => {
-      res.writeHead(200, { "Content-Type": "text/javascript" });
-      res.end(data);
-    });
-  } else {
     res.writeHead(404, { "Content-Type": "text/plain" });
-    res.end("Not Found");
+        res.end("404 Not Found");
+    return;
   }
+
+      fs.readFile(filePath, (err, data) => {
+        if (err) {
+      console.error("File read error:", err); 
+          res.writeHead(500, { "Content-Type": "text/plain" });
+      res.end("Internal Server Error");
+          return;
+    }
+        res.writeHead(200, { "Content-Type": contentType });
+        res.end(data);
+  });
 });
 
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-
