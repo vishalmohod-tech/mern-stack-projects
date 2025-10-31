@@ -63,7 +63,7 @@ li {
 li span {
   display: block;
   font-size: 12px;
-  color: gray;
+  color: #000000;
 }
 footer{
 
@@ -72,3 +72,4 @@ footer{
      background-color: #116859;
      width: 100%;
 }
+
