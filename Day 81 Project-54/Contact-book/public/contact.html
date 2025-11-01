@@ -1,0 +1,43 @@
+<!-- public/index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple Contact Book</title>
+  <link rel="stylesheet" href="contact.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Simple Contact Book</h1>
+
+    <form id="contactForm">
+      <input type="hidden" id="contactId" />
+      <div class="row">
+        <input id="name" placeholder="Name" required />
+        <input id="phone" placeholder="Phone" required />
+        <input id="email" placeholder="Email (optional)" />
+        <button id="saveBtn" type="submit">Add Contact</button>
+        <button id="cancelEdit" type="button" class="hidden">Cancel</button>
+      </div>
+    </form>
+
+    <div class="controls">
+      <button id="exportBtn">Export JSON</button>
+      <input type="file" id="importFile" accept="application/json" />
+      <button id="importBtn">Import JSON (replace)</button>
+    </div>
+
+    <ul id="contactsList" class="list"></ul>
+
+    <p class="hint">Click Edit to load a contact into the form. Export downloads a JSON file. Import replaces all contacts.</p>
+  </div>
+
+   <footer>
+          <div>Designed & Developed by Vishal-tech ✨</div>
+           🔗<a href="https://github.com/vishalmohod-tech"> GitHub </a> • <a href="https://www.linkedin.com/in/vishalmohod-tech/"> LinkedIn </a>
+     </footer>
+
+ <script src="contact.js"></script>
+</body>
+</html>
