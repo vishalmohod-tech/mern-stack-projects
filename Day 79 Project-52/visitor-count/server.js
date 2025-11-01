@@ -1,36 +1,41 @@
-const http = require("http");
-const fs = require("fs");
-const path = require("path");
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
 
 const PORT = process.env.PORT || 10000;
+const DATA_FILE = path.join(__dirname, 'visitors.json');
+
+// Ensure file exists
+if (!fs.existsSync(DATA_FILE)) {
+  fs.writeFileSync(DATA_FILE, JSON.stringify({ count: 0 }, null, 2));
+}
 
 const server = http.createServer((req, res) => {
-  if (req.url === "/" || req.url === "/visitor.html") {
-    fs.readFile(path.join(__dirname, "visitor.html"), (err, data) => {
+  if (req.url === '/') {
+    fs.readFile(DATA_FILE, 'utf8', (err, data) => {
       if (err) {
-        res.writeHead(500, { "Content-Type": "text/plain" });
-        res.end("Internal Server Error");
-      } else {
-        res.writeHead(200, { "Content-Type": "text/html" });
-        res.end(data);
+        res.statusCode = 500;
+        res.end('Internal Server Error');
+        return;
       }
-    });
-  } else if (req.url === "/visitor.css") {
-    fs.readFile(path.join(__dirname, "visitor.css"), (err, data) => {
-      res.writeHead(200, { "Content-Type": "text/css" });
-      res.end(data);
-    });
-  } else if (req.url === "/visitor.js") {
-    fs.readFile(path.join(__dirname, "visitor.js"), (err, data) => {
-      res.writeHead(200, { "Content-Type": "text/javascript" });
-      res.end(data);
+
+      const visitorData = JSON.parse(data);
+      visitorData.count++;
+      fs.writeFile(DATA_FILE, JSON.stringify(visitorData), (err) => {
+        if (err) {
+          res.statusCode = 500;
+          res.end('Internal Server Error');
+          return;
+        }
+
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end(`<h1>Visitor Count: ${visitorData.count}</h1>`);
+      });
     });
   } else {
-    res.writeHead(404, { "Content-Type": "text/plain" });
-    res.end("Not Found");
+    res.statusCode = 404;
+    res.end('Not Found');
   }
 });
 
-server.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
