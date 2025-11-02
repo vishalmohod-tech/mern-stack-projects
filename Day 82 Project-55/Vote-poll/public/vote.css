@@ -1,0 +1,44 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #98e2dc;
+  padding: 45px;
+}
+
+h1 {
+  color: #333232;
+}
+
+.buttons {
+  margin: 22px;
+}
+
+button {
+  background: #411de4;
+  border: none;
+  color: rgb(236, 232, 232);
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #10454d;
+}
+
+#results {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+
+ footer {
+   
+       text-align: center;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      background-color: #547686;
+      width: 100%;
+        margin-top: 40px;
+    }

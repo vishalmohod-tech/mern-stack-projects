@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote Poll</title>
+    <link rel="stylesheet" href="vote.css">
+</head>
+<body>
+ <h1>📊 Live Polling App</h1>
+  <p>Vote for your favorite technology 👇</p>
+
+  <div class="buttons">
+    <button onclick="vote('html')">HTML</button>
+    <button onclick="vote('css')">CSS</button>
+    <button onclick="vote('js')">JavaScript</button>
+  </div>
+
+  <div id="results">
+    <h2>Results</h2>
+    <p>HTML: <span id="html">0</span></p>
+    <p>CSS: <span id="css">0</span></p>
+    <p>JavaScript: <span id="js">0</span></p>
+  </div>
+
+  <button onclick="updateResults()">🔄 Refresh Results</button>
+
+  <footer>
+<div>Designed & Developed by Vishal-tech ✨</div>
+🔗<a href="https://github.com/vishalmohod-tech"> GitHub </a> • <a href="https://www.linkedin.com/in/vishalmohod-tech/"> LinkedIn </a>
+</footer>
+
+<script src="vote.js"></script>
+  
+</body>
+</html>
