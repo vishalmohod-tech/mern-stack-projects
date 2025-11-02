@@ -9,19 +9,25 @@ const server = http.createServer((req, res) => {
   const pathname = requestUrl.pathname;
 
   if (pathname === "/") {
-    // Serve HTML
+    
     fs.readFile("./public/vote.html", (err, data) => {
       res.writeHead(200, { "Content-Type": "text/html" });
       res.end(data);
     });
   } else if (pathname === "/vote.css") {
-    // Serve CSS
-    fs.readFile("./public/style.css", (err, data) => {
+  
+    fs.readFile("./public/vote.css", (err, data) => {
       res.writeHead(200, { "Content-Type": "text/css" });
       res.end(data);
     });
-  } else if (pathname === "/vote") {
-    // Handle voting
+  }else if (pathname === "/vote.js") {
+    
+    fs.readFile("./public/vote.js", (err, data) => {
+      res.writeHead(200, { "Content-Type": "text/css" });
+      res.end(data);
+    });
+  }  else if (pathname === "/vote") {
+    
     const lang = requestUrl.searchParams.get("lang");
     if (votes[lang] !== undefined) {
       votes[lang]++;
@@ -30,14 +36,14 @@ const server = http.createServer((req, res) => {
     res.end(JSON.stringify(votes));
   } else if (pathname.endsWith("/results")) {
 
-    // Send results
     res.writeHead(200, { "Content-Type": "application/json" });
     res.end(JSON.stringify(votes));
   } else {
-    // 404
+    
     res.writeHead(404, { "Content-Type": "text/plain" });
     res.end("Not Found");
   }
 });
 
 server.listen(3000, () => console.log("Server running at http://localhost:3000"));
+
