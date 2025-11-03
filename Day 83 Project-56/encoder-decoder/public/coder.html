@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Encoder & Decoder</title>
+    <link rel="stylesheet" href="coder.css">
+</head>
+<body>
+    
+    <div class="mcontainer">
+     <div class="card">
+    <h1>Custom Encoder / Decoder</h1>
+
+    <label for="inputText">Input text</label>
+       <textarea id="inputText" rows="4" placeholder="Type text to encode or decode..."></textarea>
+
+    <label for="shift">Shift (integer)</label>
+     <input id="shift" type="number" value="3" />
+
+    <div class="buttons">
+        <button id="encodeBtn">Encode</button>
+             <button id="decodeBtn">Decode</button>
+      <button id="copyBtn">Copy Result</button>
+    </div>
+
+    <label for="result">Result</label>
+      <textarea id="result" rows="4" readonly placeholder="Result will appear here..."></textarea>
+    <p class="note">Uses a simple Caesar-like cipher shifting printable ASCII characters. No external libraries.</p>
+  </div>
+</div>
+
+   <footer>
+          <div>Designed & Developed by Vishal-tech ✨</div>
+           🔗<a href="https://github.com/vishalmohod-tech"> GitHub </a> • <a href="https://www.linkedin.com/in/vishalmohod-tech/"> LinkedIn </a>
+     </footer>
+
+     <script src="coder.js"></script>
+</body>
+</html>
