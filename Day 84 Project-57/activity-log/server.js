@@ -52,7 +52,21 @@ const server = http.createServer((req, res) => {
       return res.end(JSON.stringify({ ok: true, message: 'Logged' }));
     });
     return;
+  }  
+  if (url === '/activity' && method === 'GET') {
+    fs.readFile(LOG_FILE, 'utf8', (err, data) => {
+      if (err) {
+        res.writeHead(500, { 'Content-Type': 'text/plain' });
+        return res.end('Error reading log file');
+      }
+      res.writeHead(200, { 'Content-Type': 'text/plain' });
+      res.end(data);
+    });
+    return;
   }
+
+
+
 
   let reqPath = url === '/' ? '/activity.html' : url;
   reqPath = reqPath.replace(/\.\./g, '');
@@ -81,3 +95,4 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, () => {
   console.log(`Activity Logger running: http://localhost:${PORT}`);
 });
+
