@@ -20,19 +20,23 @@ function serveFile(res, filePath, contentType) {
 const server = http.createServer((req, res) => {
   const { url, method } = req;
 
- 
   if (method === "GET") {
-    if (url === "/") {
-      return serveFile(res, "./public/file.html", "text/html");
-    } else if (url.endsWith(".css")) {
-      return serveFile(res, path.join(__dirname, "public", url), "text/css");
-    } else if (url.endsWith(".js")) {
-      return serveFile(res, path.join(__dirname, "public", url), "text/javascript");
-    } else if (url.startsWith("/uploads/")) {
-      return serveFile(res, `.${url}`, "application/octet-stream");
+    if (url === "/") return serveFile(res, "./public/file.html", "text/html");
+    if (url.endsWith(".css")) return serveFile(res, path.join(__dirname, "public", url), "text/css");
+    if (url.endsWith(".js")) return serveFile(res, path.join(__dirname, "public", url), "text/javascript");
+
+    if (url.startsWith("/uploads/")) {
+      const filePath = path.join(__dirname, url);
+      const ext = path.extname(filePath).toLowerCase();
+      let contentType = "application/octet-stream";
+
+      if (ext === ".png" || ext === ".jpg" || ext === ".jpeg") contentType = "image/jpeg";
+      else if (ext === ".gif") contentType = "image/gif";
+      else if (ext === ".txt") contentType = "text/plain";
+
+      return serveFile(res, filePath, contentType);
     }
   }
-
 
   if (url === "/upload" && method === "POST") {
     let data = Buffer.alloc(0);
@@ -78,4 +82,3 @@ const server = http.createServer((req, res) => {
 
 const PORT = 3000;
 server.listen(PORT, () => console.log(`✅ Server running at http://localhost:${PORT}`));
-
