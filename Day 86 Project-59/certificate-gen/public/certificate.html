@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate-PDF Generator</title>
+<link rel="stylesheet" href="certificate.css">
+</head>
+<body>
+    <div class="container">
+     <main class="card">
+    <header>
+      <h1>Certificate Generator</h1>
+      <p class="lead">Enter details — get a beautiful downloadable PDF certificate instantly.</p>
+    </header>
+
+    <form id="certForm" class="form">
+      <div class="row">
+        <label>Name</label>
+        <input id="name" name="name" placeholder="Full name (e.g., Vishal Mohod)" required />
+      </div>
+
+      <div class="row">
+        <label>Course</label>
+        <input id="course" name="course" placeholder="Course title (e.g., Frontend Mastery)" required />
+      </div>
+
+      <div class="row">
+        <label>Date</label>
+        <input id="date" name="date" placeholder="e.g., November 4, 2025" required />
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn">Generate Certificate</button>
+        <div id="status" class="status"></div>
+      </div>
+    </form>
+
+    <section id="previewSection" class="preview" hidden>
+      <h3>Preview / Download</h3>
+      <iframe id="pdfFrame" style="width:100%; height:400px; border-radius:8px; border:1px solid rgba(255,255,255,0.06)"></iframe>
+      <a id="downloadLink" class="btn download" target="_blank">Open in new tab / Download</a>
+    </section>
+
+    
+  </main>
+  </div>
+    <footer>
+          <div>Designed & Developed by Vishal-tech ✨</div>
+           🔗<a href="https://github.com/vishalmohod-tech"> GitHub </a> • <a href="https://www.linkedin.com/in/vishalmohod-tech/"> LinkedIn </a>
+     </footer>
+  <script src="certificate.js"></script>
+</body>
+</html>

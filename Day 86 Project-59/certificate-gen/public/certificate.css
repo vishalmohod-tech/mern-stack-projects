@@ -1,0 +1,107 @@
+html,body{
+     height:100%;
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Arial;
+}
+body{
+     background: linear-gradient(135deg,#174447,#087a7a);
+      color:#eaf6f0;
+}
+.container{
+    display:flex;
+    align-items:center;
+         justify-content:center;
+         padding:48px;
+}
+.card{
+    width:100%;
+     max-width:880px;
+     background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+     padding:26px;
+     border-radius:14px;
+    box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+    border: 1px solid rgba(255,255,255,0.03);
+}
+
+header h1{
+     margin:0;
+     font-size:26px;
+}
+.lead{
+        color:#9fb3c8;
+         margin:6px 0 16px;
+    }
+
+.form .row{
+        display:flex;
+        flex-direction:column;
+         margin-bottom:12px;
+
+}
+.form label{
+     font-size:13px; 
+        color:#9fb3c8;
+        margin-bottom:6px;
+    }
+.form input{
+    padding:12px 14px;
+    border-radius:10px;
+        border:1px solid rgba(255,255,255,0.04);
+        background: rgba(255,255,255,0.01);
+        color: #edf0ee;
+        outline:none;
+}
+.form input:focus{
+      box-shadow: 0 6px 18px rgba(0,0,0,0.5); 
+     border-color: rgba(126,231,197,0.2);
+}
+
+.actions{
+        display:flex; 
+     align-items:center;
+      gap:12px;
+}
+.btn{
+      background: linear-gradient(90deg,#7ee7c5,#47d1be);
+     color:#07323a;
+     border:none;
+     padding:10px 14px;
+     border-radius:10px;
+     font-weight:700;
+     cursor:pointer;
+     text-decoration:none;
+}
+.btn.download{
+     background:transparent;
+     color:#7ee7c5; 
+      border:1px solid rgba(126,231,197,0.12);
+}   
+
+.status{
+        color:#9fb3c8;
+     font-size:14px;
+    }
+
+.preview{
+        margin-top:18px;
+}
+.preview h3{
+        margin:0 0 8px;
+     font-size:16px;
+    }
+.foot{
+        margin-top:18px;
+         color:#9fb3c8;
+         font-size:13px;
+    }
+
+
+footer{
+
+         text-align: center;
+         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+          background-color: #56b3a3;
+          width: 100%;
+         margin-top: 10px;
+         color: #071614;
+}
