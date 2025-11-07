@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificate-PDF Generator</title>
+  <link rel="stylesheet" href="certificatep.css">
+</head>
+<body>
+  <div class="container">
+
+  
+   <main class="card">
+    <header>
+      <h1>Certificate Generator</h1>
+      <p>Create a beautiful certificate and download as PDF.</p>
+    </header>
+
+    <form id="certForm">
+      <label>
+        Recipient Name
+        <input id="name" name="name" required placeholder="e.g. Vishal Mohod" />
+      </label>
+
+      <label>
+        Course / Achievement
+        <input id="course" name="course" required placeholder="e.g. Full Stack Web Development" />
+      </label>
+
+      <label>
+        Date
+        <input id="date" name="date" type="date" />
+      </label>
+
+      <div class="controls">
+        <button type="submit" id="generateBtn">Generate & Download PDF</button>
+      </div>
+    </form>
+
+    <p class="note">No data is stored or sent to any third party — PDF is generated on the server only.</p>
+  </main>
+      
+  </div>
+<footer>
+          <div>Designed & Developed by Vishal-tech ✨</div>
+           🔗<a href="https://github.com/vishalmohod-tech"> GitHub </a> • <a href="https://www.linkedin.com/in/vishalmohod-tech/"> LinkedIn </a>
+     </footer>
+  <script src="certificatep.js"></script>
+</body>
+</html>
