@@ -18,6 +18,13 @@ function serveStaticFile(res, filePath, contentType) {
   });
 }
 
+const uploadedFilePath = path.join(__dirname, "uploaded.txt");
+
+if (!fs.existsSync(uploadedFilePath)) {
+  fs.writeFileSync(uploadedFilePath, "", "utf8");
+  console.log("✅ Created empty uploaded.txt file to prevent startup crash");
+}
+
 const server = http.createServer((req, res) => {
   if (req.method === "GET") {
     if (req.url === "/") {
@@ -101,4 +108,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+
 
