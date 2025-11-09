@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Compressor-Extractor</title>
+    <link rel="stylesheet" href="textc.css">
+</head>
+<body>
+    
+    <div class="mcontainer">
+ <div class="container">
+    <h1>🗜️ Text File Compressor & Extractor</h1>
+
+    <div class="section">
+      <h2>Compress a Text File</h2>
+      <input type="file" id="compressFile" accept=".txt" />
+      <button onclick="uploadAndCompress()">Compress</button>
+      <p id="compressResult"></p>
+    </div>
+
+    <div class="section">
+      <h2>Extract a GZ File</h2>
+      <input type="file" id="extractFile" accept=".gz" />
+      <button onclick="uploadAndExtract()">Extract</button>
+      <p id="extractResult"></p>
+    </div>
+  </div>
+
+    </div>
+
+    <footer>
+          <div>Designed & Developed by Vishal-tech ✨</div>
+           🔗<a href="https://github.com/vishalmohod-tech"> GitHub </a> • <a href="https://www.linkedin.com/in/vishalmohod-tech/"> LinkedIn </a>
+     </footer>
+     
+    <script src="textc.js"></script>
+</body>
+</html>
