@@ -38,6 +38,11 @@ const server = http.createServer((req, res) => {
 
     req.pipe(writeStream);
     req.on("end", () => {
+       if (!fs.existsSync(filePath)) {
+        console.log("⚠️ No uploaded file found yet — waiting for first upload");
+        res.writeHead(400, { "Content-Type": "text/plain" });
+        return res.end("No file uploaded yet.");
+      }
       const gzip = zlib.createGzip();
       const source = fs.createReadStream(filePath);
       const destination = fs.createWriteStream("compressed.gz");
@@ -58,6 +63,11 @@ const server = http.createServer((req, res) => {
 
     req.pipe(writeStream);
     req.on("end", () => {
+       if (!fs.existsSync(filePath)) {
+        console.log("⚠️ No uploaded .gz file found yet — waiting for first upload");
+        res.writeHead(400, { "Content-Type": "text/plain" });
+        return res.end("No compressed file uploaded yet.");
+      }
       const gunzip = zlib.createGunzip();
       const source = fs.createReadStream(filePath);
       const destination = fs.createWriteStream("extracted.txt");
@@ -91,3 +101,4 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+
