@@ -29,6 +29,15 @@ const server = http.createServer((req, res) => {
       PUBLIC,
       req.url === "/" ? "textc.html" : req.url
     );
+ if (!filePath.startsWith(PUBLIC)) {
+      res.writeHead(403);
+      return res.end("Forbidden");
+    }
+
+    
+    fs.stat(filePath, (err, stats) => {
+      if (!err && stats.isFile()) {
+    
     const ext = path.extname(filePath);
     const types = {
       ".html": "text/html",
@@ -36,7 +45,13 @@ const server = http.createServer((req, res) => {
       ".js": "application/javascript",
     };
     const type = types[ext] || "text/plain";
-    return sendFile(res, filePath, type);
+        sendFile(res, filePath, type);
+      } else {
+        // fallback — helps prevent 502 on refresh
+        sendFile(res, path.join(PUBLIC, "textc.html"), "text/html");
+      }
+    });
+    return;
   }
 
   if (req.method === "POST" && req.url === "/compress") {
@@ -76,3 +91,4 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, () => console.log("Server running on port", PORT));
+
