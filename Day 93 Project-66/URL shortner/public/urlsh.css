@@ -1,0 +1,81 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #da93fb, #57f5ab);
+  height: 100vh;
+  
+  margin: 0;
+  color: #222;
+}
+
+.mcontainer {
+     display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  background: #ddf0ed;
+  padding: 30px 40px;
+  border-radius: 20px;
+  text-align: center;
+  width: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  margin-top: 150px;
+}
+
+h1 {
+  color: #f83677;
+}
+
+p {
+  font-size: 14px;
+  color: #474747;
+}
+
+form {
+  margin-top: 20px;
+}
+
+input[type="url"] {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ee3875;
+  border-radius: 10px;
+  outline: none;
+}
+
+button {
+  background: #ff4081;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #e91e63;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #333;
+}
+
+#result a {
+  color: #2196f3;
+  text-decoration: none;
+}
+
+footer{
+
+     text-align: center;
+         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+         background-color: #3a726b;
+             width: 100%;
+            margin-top: 20px;
+            position: fixed;
+            bottom: 10px;
+    }
