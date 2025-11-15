@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Node js</title>
+    <link rel="stylesheet" href="lastf.css">
+</head>
+<body>
+    
+
+<h1>📘 Mini CMS</h1>
+
+<button onclick="toggleDark()">🌙 Toggle Dark Mode</button>
+
+<h2>Create New Post</h2>
+
+<select id="category">
+    <option>General</option>
+    <option>Tech</option>
+    <option>Life</option>
+</select>
+
+<textarea id="content" placeholder="Write something..."></textarea>
+<br>
+<button onclick="publish()">Publish</button>
+
+<h2>Search</h2>
+<input type="text" id="search" placeholder="Search posts..." onkeyup="loadAll()">
+
+<h2>All Posts</h2>
+<div id="post-list"></div>
+
+<footer>
+          <div>Designed & Developed by Vishal-tech ✨</div>
+         
+          🔗<a href="https://github.com/vishalmohod-tech"> GitHub </a> • <a href="https://www.linkedin.com/in/vishalmohod-tech/"> LinkedIn </a>
+          
+     </footer>
+
+<script src="lastf.js"></script>
+</body>
+</html>
