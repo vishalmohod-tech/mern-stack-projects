@@ -13,6 +13,12 @@ app.get("/message", (req, res) => {
   res.json({ message: random });
 });
 
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/public/dmsg.html");
+});
+
+
 app.listen(PORT, () => {
   console.log("Server running on port " + PORT);
 });
+
