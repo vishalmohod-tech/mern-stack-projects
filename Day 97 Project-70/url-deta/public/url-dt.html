@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Preview</title>
+    <link rel="stylesheet" href="url-dt.css">
+</head>
+<body>
+    
+    <div class="mcontainer">
+
+          <main class="container">
+    <h1>URL Preview</h1>
+
+    <form id="previewForm" onsubmit="return false;">
+      <input id="urlInput" type="url" placeholder="Enter full URL (https://example.com)" required />
+      <button id="goBtn" type="submit">Preview</button>
+    </form>
+
+    <div id="status" class="muted">Enter a URL and click <strong>Preview</strong></div>
+
+    <section id="cardContainer" class="hidden">
+      <div class="preview-card">
+        <div class="thumb-wrap" id="thumbWrap">
+          <img id="previewImage" alt="thumbnail" />
+        </div>
+        <div class="preview-body">
+          <div class="title-row">
+            <img id="favicon" class="favicon" alt="" />
+            <div>
+              <div id="previewTitle" class="title"></div>
+              <div id="previewDomain" class="domain muted"></div>
+            </div>
+          </div>
+          <p id="previewDescription" class="description muted"></p>
+        </div>
+      </div>
+    </section>
+
+    <pre id="debug" class="muted debug"></pre>
+  </main>
+
+    </div>
+
+    
+<footer>
+          <div>Designed & Developed by Vishal-tech ✨</div>
+         
+          🔗<a href="https://github.com/vishalmohod-tech"> GitHub </a> • <a href="https://www.linkedin.com/in/vishalmohod-tech/"> LinkedIn </a>
+          
+     </footer>
+     
+    <script src="url-dt.js"></script>
+</body>
+</html>
