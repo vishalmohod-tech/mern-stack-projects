@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary Slang</title>
+    <link rel="stylesheet" href="dict.css">
+</head>
+<body>
+    
+      <header>
+        <h1>📚 Slang & Dictionary API</h1>
+        <p>Your personal mini-dictionary powered by Express.js</p>
+    </header>
+
+    <section class="search-box">
+        <input type="text" id="wordInput" placeholder="Type any word...">
+        <button id="searchBtn">Search</button>
+    </section>
+
+    <section id="result" class="result-box">
+
+    </section>
+
+    <section class="examples">
+        <h2>🔍 Try Some Example Words</h2>
+        <div class="tags">
+            <button class="tag">javascript</button>
+            <button class="tag">express</button>
+            <button class="tag">vibe</button>
+            <button class="tag">lit</button>
+            <button class="tag">cap</button>
+            <button class="tag">noob</button>
+            <button class="tag">stack</button>
+            <button class="tag">deploy</button>
+        </div>
+    </section>
+
+    <section class="api-info">
+        <h2>🌐 API Routes</h2>
+        <ul>
+            <li>GET <span>/define/:word</span> → Meaning of the word</li>
+            <li>GET <span>/all</span> → Returns full dictionary JSON</li>
+        </ul>
+    </section>
+
+    <footer>
+          <div>Designed & Developed by Vishal-tech ✨</div>
+         
+          🔗<a href="https://github.com/vishalmohod-tech"> GitHub </a> • <a href="https://www.linkedin.com/in/vishalmohod-tech/"> LinkedIn </a>
+          
+     </footer>
+
+   <script src="dict.js"></script>
+
+</body>
+</html>
