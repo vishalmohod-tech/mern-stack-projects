@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+    * { margin: 0; 
+    padding: 0; box-sizing:border-box;
+      font-family: Poppins, sans-serif;
+       }
+
+
+    body {
+        background: linear-gradient(135deg, #3773c7, #284858);
+        height: 100vh;
+        color: white;
+        padding: 20px;
+    }
+.container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+    .box {
+        background: rgba(255,255,255,0.15);
+        backdrop-filter: blur(12px);
+        padding: 30px;
+        border-radius: 18px;
+        width: 95%;
+        max-width: 600px;
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        animation: fade 0.6s ease;
+    }
+
+    @keyframes fade { from{opacity:0; transform:translateY(20px);} to{opacity:1;} }
+
+    h1 { font-size: 30px; margin-bottom: 10px; }
+
+    .upload-area {
+        padding: 35px;
+        border: 2px dashed #cfe0ff;
+        border-radius: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+        background: rgba(255,255,255,0.1);
+    }
+
+    .upload-area:hover {
+        background: rgba(255,255,255,0.25);
+        transform: scale(1.03);
+    }
+
+    .upload-area p { font-size: 16px; opacity: 0.9; }
+
+    input[type=file] { display: none; }
+
+    button {
+        width: 100%;
+        margin-top: 20px;
+        padding: 14px;
+        background: #00eaff;
+        color: #003b60;
+        border: none;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #00c9d6;
+        transform: translateY(-2px);
+    }
+
+    .result {
+        margin-top: 26px;
+        text-align: left;
+        font-size: 15px;
+        background: rgba(255,255,255,0.2);
+        padding: 15px;
+        border-radius: 11px;
+        display: none;
+    }
+
+    
+footer{
+
+     text-align: center;
+         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+         background-color: #3a726b;
+             width: 100%;
+         position: fixed;
+         bottom: 20px;
+
+    
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    
+<div class="box">
+    <h1>📁 Multi File Uploader</h1>
+    <p>Select up to 10 files and upload.</p>
+
+    <div class="upload-area" onclick="document.getElementById('files').click()">
+        <p>Click to choose files</p>
+        <input type="file" id="files" multiple>
+    </div>
+
+    <button onclick="uploadFiles()">Upload Files</button>
+
+    <div class="result" id="result"></div>
+</div>
+</div>
+<footer>
+      <div>Designed & Developed by Vishal-tech ✨</div>
+     
+      🔗<a href="https://github.com/vishalmohod-tech"> GitHub </a> • <a href="https://www.linkedin.com/in/vishalmohod-tech/"> LinkedIn </a>
+      
+ </footer>
+<script>
+async function uploadFiles() {
+    const input = document.getElementById("files");
+
+    if (!input.files.length) {
+        alert("Please select at least one file");
+        return;
+    }
+
+    const formData = new FormData();
+    for (let file of input.files) {
+        formData.append("files", file);
+    }
+
+    let res = await fetch("/upload", {
+        method: "POST",
+        body: formData
+    });
+
+    let data = await res.json();
+
+    let output = document.getElementById("result");
+    output.style.display = "block";
+
+    output.innerHTML = "<h3>Uploaded Files:</h3>";
+    data.files.forEach(f => {
+        output.innerHTML += `
+            <p>✔ ${f.originalName} → <b>${f.savedAs}</b></p>
+        `;
+    });
+}
+</script>
+
+
+</body>
+</html>
